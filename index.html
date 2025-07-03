@@ -6,13 +6,7 @@
     <meta name="author" content="Kevin Loughead" />
     <meta name="description" content="something" />
     <meta name="keywords" content="HTML, CSS, ???" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
   </head>
@@ -22,7 +16,7 @@
         <img src="./images/logo.svg" alt="Spot Logo" class="header__logo" />
       </header>
       <main class="content">
-        <section class="profile">
+        <section class="profile page__section">
           <img
             src="./images/avatar.jpg"
             alt="Bessie Coleman"
@@ -39,7 +33,7 @@
             <button type="button" class="profile__add-btn">New post</button>
           </div>
         </section>
-        <section class="cards">
+        <section class="cards page__section">
           <ul class="cards__list">
             <li class="card">
               <img
@@ -81,7 +75,9 @@
                 class="card__image"
               />
               <div class="card__content">
-                <h2 class="card__title">A very long bridge, over the forest...</h2>
+                <h2 class="card__title">
+                  A very long bridge, over the forest...
+                </h2>
                 <button type="button" class="card__like-btn"></button>
               </div>
             </li>
@@ -110,7 +106,9 @@
           </ul>
         </section>
       </main>
-      <footer class="footer"></footer>
+      <footer class="footer">
+        <p class="footer__copyright">2025 &copy; Spots</p>
+      </footer>
     </div>
   </body>
 </html>

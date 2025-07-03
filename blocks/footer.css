@@ -1,0 +1,36 @@
+.footer {
+  display: block;
+  border: #212121;
+  border-top: 1px rgba(31, 31, 31, 0.4) solid;
+  max-width: 1280px;
+  margin: 0 auto;
+
+}
+
+.footer__copyright {
+  width: fit-content;
+  height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  font-family: "PoppinsRegular", Arial, Helvetica, sans-serif;
+  color: #312e2e;
+  opacity: 0.7;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 60px;
+  padding-top: 60px;
+
+
+}
+ @media screen and (max-width: 627px) {
+.footer{
+  flex-direction: column;
+  max-width: 288px;
+  border-bottom: 1px;
+  padding-bottom: 20px;
+  align-items: center;
+  text-align: center;
+}
+ }
