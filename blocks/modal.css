@@ -12,7 +12,6 @@
 }
 .modal_is-open {
   visibility: visible;
-  
 }
 .modal__container {
   max-width: 730px;
