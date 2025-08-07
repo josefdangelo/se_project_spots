@@ -12,6 +12,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const newPostForm = newPostModal.querySelector(".modal__form");
 const editImageLinkInput = document.querySelector("#profile-imagelink-input");
 const editCaptionInput = document.querySelector("#profile-caption-input");
 
@@ -57,10 +58,11 @@ function handleEditProfileSubmit(evt) {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  imageLinkEl.textContent = editImageLinkInput.value;
-  captionInputEl.textContent = editCaptionInput.value;
+  console.log("Image link", editImageLinkInput.value);
+  console.log("Caption", editCaptionInput.value);
   closeModal(newPostModal);
   console.log("submitting");
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
+newPostForm.addEventListener("submit", handleNewPostSubmit);
