@@ -1,7 +1,7 @@
 const initialCards = [
   {
     name: "Val Thorens",
-    link: "https://www.practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
   {
     name: "Restaurant terrace",
@@ -55,8 +55,8 @@ const cardTemplate = document
 
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardTitleEl = document.querySelector(".card__title");
-  const cardImageEl = document.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
 
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
@@ -78,6 +78,7 @@ editProfileBtn.addEventListener("click", function () {
 
   openModal(editProfileModal);
 });
+
 editCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
@@ -105,12 +106,24 @@ function handleNewPostSubmit(evt) {
   console.log("Caption", editCaptionInput.value);
   closeModal(newPostModal);
   console.log("submitting");
+
+  const cardElement = getCardElement({
+    link: (imageLinkEl.textContent = editImageLinkInput.value),
+    name: (captionInputEl.textContent = editCaptionInput.value),
+  });
+  document.querySelector(".cards__list").prepend(cardElement);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
-initialCards.forEach(function (item) {
+initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
-  cardsList.prepend(cardElement);
+  document.querySelector(".cards__list").append(cardElement);
 });
+
+//
+// const a = document.querySelector('#card-template');
+// const content = a.content;
+// const clonedContent = document.importNode(content, true);
+// document.querySelector(".cards__list").append(clonedContent);
