@@ -13,7 +13,6 @@
   transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
-
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
@@ -27,6 +26,21 @@
   position: relative;
   height: 348px;
 }
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+
+
+}
+.modal__image-container {
+  position: relative;
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -40,6 +54,19 @@
   background-image: URL(../images/XXXXXXX.svg);
   background-repeat: no-repeat;
   background-color: #fff;
+  background-color: transparent;
+}
+.modal__close-btn_type_preview {
+  top: 0;
+  right: -52.5px;
+  background-image: url(../images/white\ close\ btn.svg);
+}
+
+.modal__close-btn_type_preview:hover {
+}
+
+.modal__close-btn:hover {
+  background-image: url(../images/modal\ close\ hover.svg);
 }
 
 .modal__title {
@@ -74,4 +101,8 @@
   height: 52px;
   width: 156px;
   border: none;
+}
+
+.modal__caption {
+  color: white;
 }
