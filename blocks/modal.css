@@ -29,16 +29,15 @@
 .modal__image {
   max-width: 80vw;
   max-height: 80vh;
-
-
 }
 .modal__image-container {
   position: relative;
   max-width: 80vw;
   max-height: 80vh;
-  width: 100%;
+  width: fit-content;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .modal__close-btn {
@@ -105,4 +104,12 @@
 
 .modal__caption {
   color: white;
+  background-color:#212121;
+  border-radius: 8px;
+  width: fit-content;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }

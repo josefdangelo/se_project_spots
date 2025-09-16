@@ -42,6 +42,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 const previewModal = document.querySelector("#preview-modal");
 const previewModalClose = previewModal.querySelector(".modal__close-btn");
 const previewModalImage = previewModal.querySelector(".modal__image");
+const previewModalCaption = previewModal.querySelector(".modal__caption");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
@@ -80,10 +81,15 @@ function getCardElement(data) {
   cardTitleEl.textContent = data.name;
 
   cardImageEl.addEventListener("click", function () {
+
     previewModal.classList.add("modal_is-opened");
     previewModalImage.src = data.link;
     previewModalImage.alt = data.name;
+    previewModalCaption.textContent = previewModalImage.alt
+
   });
+
+
 
   return cardElement;
 }
