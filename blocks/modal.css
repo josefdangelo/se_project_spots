@@ -113,3 +113,13 @@
   padding-top: 4px;
   padding-bottom: 4px;
 }
+
+@media screen and (max-width: 627px) {
+
+  .modal{
+background-color: rgb(0 0 0 / 81%);
+  }
+  .modal__caption {
+height: fit-content;
+  }
+}
