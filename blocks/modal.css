@@ -19,16 +19,12 @@
 }
 
 .modal__container {
-  max-width: 730px;
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 32px 50px;
   position: relative;
-  height: 348px;
 }
 .modal__image {
   max-width: 80vw;
   max-height: 80vh;
+  padding-bottom: 8px;
 }
 .modal__image-container {
   position: relative;
@@ -104,22 +100,30 @@
 
 .modal__caption {
   color: white;
-  background-color:#212121;
+  background-color: #212121;
   border-radius: 8px;
   width: fit-content;
-  height: 32px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
   padding-bottom: 4px;
+  font-size: 20px;
+  margin: 0;
+
 }
 
 @media screen and (max-width: 627px) {
-
-  .modal{
-background-color: rgb(0 0 0 / 81%);
+  .modal {
+    background-color: rgb(0 0 0 / 81%);
+    
   }
   .modal__caption {
-height: fit-content;
+    height: fit-content;
+
+  }
+
+  .modal__image {
+    padding-bottom: 12px;
+
   }
 }

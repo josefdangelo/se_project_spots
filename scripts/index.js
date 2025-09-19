@@ -135,16 +135,19 @@ function handleEditProfileSubmit(evt) {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  console.log("Image link", editImageLinkInput.value);
-  console.log("Caption", editCaptionInput.value);
-  closeModal(newPostModal);
-  console.log("submitting");
 
+  const formData = new FormData(evt.target);
+  const formEntries = Object.fromEntries(formData);
+  
   const cardElement = getCardElement({
-    link: (imageLinkEl.textContent = editImageLinkInput.value),
-    name: (captionInputEl.textContent = editCaptionInput.value),
+    link: formEntries.link,
+    name: formEntries.name,
   });
+
   document.querySelector(".cards__list").prepend(cardElement);
+
+  closeModal(newPostModal);
+  evt.target.reset();
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
