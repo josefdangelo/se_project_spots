@@ -4,7 +4,7 @@ An image sharing website
 
 ## Description
 
-TODO - Describe the project and its functionality.
+This website is to be able to allow you to build you a social media profile where you can post and delete images and captions of your choice that describes who you are. 
 
 ## Tech Stack
 

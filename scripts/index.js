@@ -138,7 +138,7 @@ function handleNewPostSubmit(evt) {
 
   const formData = new FormData(evt.target);
   const formEntries = Object.fromEntries(formData);
-  
+
   const cardElement = getCardElement({
     link: formEntries.link,
     name: formEntries.name,
@@ -158,8 +158,4 @@ initialCards.forEach((item) => {
   document.querySelector(".cards__list").append(cardElement);
 });
 
-//
-// const a = document.querySelector('#card-template');
-// const content = a.content;
-// const clonedContent = document.importNode(content, true);
-// document.querySelector(".cards__list").append(clonedContent);
+
