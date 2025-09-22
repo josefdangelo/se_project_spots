@@ -26,7 +26,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-
 }
 
 .card__like-button_active {
@@ -51,6 +50,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  padding-bottom: 3px;
 }
 
 .card__delete-button {
@@ -66,7 +66,6 @@
   background-size: contain;
   position: absolute;
   top: 10px;
-
 }
 .card__delete-button:hover {
   background-image: url(../images/Trash\ Hover.svg);
@@ -80,7 +79,7 @@
     line-height: 100%;
   }
 
-  .card__delete-button{
+  .card__delete-button {
     left: -130px;
   }
 }
