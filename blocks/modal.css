@@ -109,6 +109,8 @@
     padding-bottom: 12px;
   }
 
-  .modal__close-btn_type_preview {
+  .modal__close-btn {
+    top: -44px;
+    right: -9px;
   }
 }
