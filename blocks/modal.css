@@ -80,10 +80,11 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  row-gap: 8px;
 }
 .modal__label {
   color: #5c5b5b;
+  margin-bottom: 32px;
 }
 .modal__input {
   display: block;
@@ -96,6 +97,11 @@
 }
 .modal__input::placeholder {
   color: rgb(209, 206, 206);
+}
+.modal__error {
+  color: red;
+  margin-top: -27px;
+  margin-bottom: 21px;
 }
 .modal__submit-btn {
   cursor: pointer;

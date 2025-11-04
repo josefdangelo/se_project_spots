@@ -52,9 +52,12 @@
                 type="text"
                 class="modal__input"
                 placeholder="Type your name"
+                minlength="2"
+                maxlength="40"
                 required
               />
             </label>
+            <span id="profile-name-input-error" class="modal__error" required></span>
             <label for="profile-description-input" class="modal__label">
               Description
               <input
@@ -62,9 +65,12 @@
                 type="text"
                 class="modal__input"
                 placeholder="Describe yourself"
+                minlength="2"
+                maxlength="200"
                 required
               />
             </label>
+            <span id="profile-description-input-error" class="modal__error" required></span>
             <button type="submit" class="modal__submit-btn"></button>
           </form>
         </div>
@@ -78,13 +84,14 @@
               Image Link
               <input
                 id="profile-imagelink-input"
-                type="text"
+                type="url"
                 class="modal__input"
                 placeholder="Paste a link into the picture"
-                name="link"
+                name="description"
                 required
               />
             </label>
+            <span id="profile-imagelink-input-error" class="modal__error" required></span>
             <label for="profile-caption-input" class="modal__label">
               Caption
               <input
@@ -93,20 +100,19 @@
                 class="modal__input"
                 placeholder="Type your caption"
                 name="name"
+                minlength="2"
+                maxlength="30"
                 required
               />
             </label>
+            <span id="profile-caption-input-error" class="modal__error" required></span>
             <button type="submit" class="modal__submit-btn"></button>
           </form>
         </div>
       </div>
       <div class="modal" id="preview-modal">
         <div class="modal__image-container">
-          <img
-            src="#"
-            alt="name"
-            class="modal__image"
-          />
+          <img src="#" alt="name" class="modal__image" />
           <button
             type="button"
             class="modal__close-btn modal__close-btn_type_preview"
@@ -128,6 +134,7 @@
       </li>
     </template>
 
+    <script src="./scripts/validation"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
