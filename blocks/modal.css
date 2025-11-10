@@ -98,6 +98,9 @@
 .modal__input::placeholder {
   color: rgb(209, 206, 206);
 }
+.modal__input_type_error {
+  border: 1px solid rgb(255, 0, 0);
+}
 .modal__error {
   color: red;
   margin-top: -27px;
@@ -112,6 +115,19 @@
   border: none;
   border-radius: 8px;
 }
+
+.modal__submit-btn:hover {
+  background-image: url(../images/SVG\ SAVEEEE.svg);
+  opacity: 80%;
+
+}
+
+.modal__submit-btn-disabled{
+  background-image: url(../images/savehoverlarge.svg);
+  opacity: 100%;
+  pointer-events: none;
+}
+
 
 .modal__caption {
   color: white;
