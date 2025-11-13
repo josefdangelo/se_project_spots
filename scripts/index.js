@@ -33,9 +33,7 @@ const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
-const nameField = editProfileModal.querySelector(
-  "#profile-name-input"
-);
+const nameField = editProfileModal.querySelector("#profile-name-input");
 const descriptionField = editProfileModal.querySelector(
   "#profile-description-input"
 );
@@ -54,10 +52,12 @@ const captionField = newPostModal.querySelector("#new-post-caption-input");
 const nameDisplayed = document.querySelector(".profile__name");
 const descriptionDisplayed = document.querySelector(".profile__description");
 
-const copyImageAddressDisplayed  = document.querySelector("#new-post-imagelink-input");
+const copyImageAddressDisplayed = document.querySelector(
+  "#new-post-imagelink-input"
+);
 const captionDisplayed = document.querySelector("#new-post-caption-input");
 
-const saveButtonElement = document.querySelector(".modal__submit-btn-disabled");
+const buttonDisabled = document.querySelector(".modal__submit-btn-disabled");
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -103,10 +103,11 @@ editProfileBtn.addEventListener("click", function () {
   nameField.value = "";
   descriptionField.value = "";
   openModal(editProfileModal);
-
 });
 
 editCloseBtn.addEventListener("click", function () {
+   nameField.value = "";
+  descriptionField.value = "";
   closeModal(editProfileModal);
 });
 
@@ -116,11 +117,14 @@ newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
 newPostCloseBtn.addEventListener("click", function () {
+  imageLinkField.value = "";
+  captionField.value = "";
   closeModal(newPostModal);
 });
 
 previewModalClose.addEventListener("click", function () {
   previewModal.classList.remove("modal_is-opened");
+
 });
 
 function handleEditProfileSubmit(evt) {
@@ -129,9 +133,8 @@ function handleEditProfileSubmit(evt) {
   descriptionDisplayed.textContent = descriptionField.value;
   closeModal(editProfileModal);
   console.log("submitting");
-  resetValidation();
 
-}
+};
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
@@ -145,9 +148,8 @@ function handleNewPostSubmit(evt) {
   });
   document.querySelector(".cards__list").prepend(cardElement);
   closeModal(newPostModal);
-  evt.target.reset();
 
-}
+};
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleNewPostSubmit);

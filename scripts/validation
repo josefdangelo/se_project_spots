@@ -1,22 +1,31 @@
-const showFieldError = (modalFormElement, fillOutInfo, fieldErrorMessage) => {
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn-disabled",
+  inputErrorClass: "modal__input-type-error",
+  errorClass: ".modal__error"
+};
+
+const showFieldError = (modalFormElement, fillOutInfo, fieldErrorMessage, configuration) => {
   const fieldErrorMessageID = fillOutInfo.id + "-error";
   const fieldErrorBottomMessage = modalFormElement.querySelector(
     "#" + fieldErrorMessageID
   );
   fieldErrorBottomMessage.textContent = fieldErrorMessage;
-  fillOutInfo.classList.add(".modal__input_type_error");
+  fillOutInfo.classList.add(configuration.inputErrorClass);
 };
 
-const hideFieldError = (modalFormElement, fillOutInfo) => {
+const hideFieldError = (modalFormElement, fillOutInfo, configuration) => {
   const fieldErrorMessageID = fillOutInfo.id + "-error";
   const fieldErrorBottomMessage = modalFormElement.querySelector(
     "#" + fieldErrorMessageID
   );
   fieldErrorBottomMessage.textContent = "";
-  fillOutInfo.classList.remove(".modal__input_type_error");
+  fillOutInfo.classList.remove(configuration.inputErrorClass);
 };
 
-const checkInputValidity = (modalFormElement, fillOutInfo) => {
+const checkInputValidity = (modalFormElement, fillOutInfo, configuration) => {
   if (!fillOutInfo.validity.valid) {
     showFieldError(
       modalFormElement,
@@ -24,7 +33,7 @@ const checkInputValidity = (modalFormElement, fillOutInfo) => {
       fillOutInfo.validationMessage
     );
   } else {
-    hideFieldError(modalFormElement, fillOutInfo);
+    hideFieldError(modalFormElement, fillOutInfo, configuration);
   }
 };
 
@@ -34,50 +43,51 @@ const hasInvalidInput = (fillOutInfoList) => {
   });
 };
 
-const toggleButtonState = (fillOutInfoList, saveButtonElement) => {
+const toggleButtonState = (fillOutInfoList, saveButtonElement, configuration) => {
  if (hasInvalidInput(fillOutInfoList)) {
- disableButton(saveButtonElement);
+ disableButton(saveButtonElement, configuration);
 } else {
   saveButtonElement.disabled = false;
-  saveButtonElement.classList.remove("modal__submit-btn-disabled");
+  saveButtonElement.classList.remove(configuration.inactiveButtonClass);
 }
 
 };
 
-const disableButton = (saveButtonElement) => {
+const disableButton = (saveButtonElement, configuration) => {
   saveButtonElement.disabled = true;
-  saveButtonElement.classList.add("modal__submit-btn-disabled");
+  saveButtonElement.classList.add(configuration.inactiveButtonClass);
 }
 
-const resetValidation = (modalFormElement, fillOutInfoList,saveButtonElement) => {
+const resetValidation = (modalFormElement, fillOutInfoList, saveButtonElement) => {
+  saveButtonElement.disabled = true;
+  modalFormElement.reset();
+
 fillOutInfoList.forEach((fillOutInfo) => {
-hideFieldError(modalFormElement, fillOutInfo);
-disableButton(saveButtonElement);
+hideFieldError(modalFormElement, fillOutInfo)
 });
 };
 
-
-const setEventListeners = (modalFormElement) => {
+const setEventListeners = (modalFormElement, configuration) => {
   const fillOutInfoList = Array.from(
-    modalFormElement.querySelectorAll(".modal__input")
+    modalFormElement.querySelectorAll(configuration.inputSelector)
   );
   const saveButtonElement =
-    modalFormElement.querySelector(".modal__submit-btn");
+    modalFormElement.querySelector(configuration.submitButtonSelector);
 
-     toggleButtonState(fillOutInfoList, saveButtonElement);
+     toggleButtonState(fillOutInfoList, saveButtonElement, configuration);
 
   fillOutInfoList.forEach((fillOutInfo) => {
     fillOutInfo.addEventListener("input", function () {
-      checkInputValidity(modalFormElement, fillOutInfo);
-      toggleButtonState(fillOutInfoList, saveButtonElement);
+      checkInputValidity(modalFormElement, fillOutInfo, configuration);
+      toggleButtonState(fillOutInfoList, saveButtonElement, configuration);
     });
   });
 };
 
-const enableValidation = () => {
-  const modalFormList = document.querySelectorAll(".modal__form");
+const enableValidation = (configuration) => {
+  const modalFormList = document.querySelectorAll(configuration.formSelector);
   modalFormList.forEach((modalFormElement) => {
-    setEventListeners(modalFormElement);
+    setEventListeners(modalFormElement, configuration);
   });
 };
-enableValidation();
+enableValidation(settings);

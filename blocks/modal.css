@@ -98,7 +98,7 @@
 .modal__input::placeholder {
   color: rgb(209, 206, 206);
 }
-.modal__input_type_error {
+.modal__input-type-error {
   border: 1px solid rgb(255, 0, 0);
 }
 .modal__error {
