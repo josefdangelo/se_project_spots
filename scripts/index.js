@@ -99,26 +99,38 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
+function addOverlayClickListener() {
+  modal.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains(".modal")) {
+      closeModal();
+    }
+  });
+};
+
+function addEscapeKeyListener() {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closeModal();
+    }
+  });
+}
+
 editProfileBtn.addEventListener("click", function () {
-  nameField.value = "";
-  descriptionField.value = "";
+  nameField.value = document.querySelector(".profile__name").textContent;
+  descriptionField.value = document.querySelector(".profile__description").textContent;
   openModal(editProfileModal);
 });
 
 editCloseBtn.addEventListener("click", function () {
-   nameField.value = "";
-  descriptionField.value = "";
+   editProfileForm.reset();
   closeModal(editProfileModal);
 });
 
 newPostBtn.addEventListener("click", function () {
-  imageLinkField.value = "";
-  captionField.value = "";
   openModal(newPostModal);
 });
 newPostCloseBtn.addEventListener("click", function () {
-  imageLinkField.value = "";
-  captionField.value = "";
+
   closeModal(newPostModal);
 });
 
@@ -148,6 +160,7 @@ function handleNewPostSubmit(evt) {
   });
   document.querySelector(".cards__list").prepend(cardElement);
   closeModal(newPostModal);
+  newPostForm.reset();
 
 };
 

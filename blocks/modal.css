@@ -53,18 +53,18 @@
   background-repeat: no-repeat;
   background-color: transparent;
   background-image: url(../images/grayx.svg);
-  opacity: 40%;
+  opacity: 0.4;
   right: 38px;
   top: 36px;
 }
 .modal__close-btn:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 .modal__close-btn_type_preview {
   background-image: url(../images/white\ close\ btn.svg);
   top: -1px;
   right: -50px;
-  opacity: 100%;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -118,13 +118,13 @@
 
 .modal__submit-btn:hover {
   background-image: url(../images/SVG\ SAVEEEE.svg);
-  opacity: 80%;
+  opacity: 0.8;
 
 }
 
 .modal__submit-btn-disabled{
   background-image: url(../images/savehoverlarge.svg);
-  opacity: 100%;
+  opacity: 1;
   pointer-events: none;
 }
 
@@ -185,7 +185,7 @@
   .modal__close-btn_type_preview {
     top: -41px;
     right: 4px;
-    opacity: 100%;
+    opacity: 1;
   }
 
   .modal__close-btn_type_preview:hover {
