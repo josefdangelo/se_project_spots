@@ -30,7 +30,8 @@ const checkInputValidity = (modalFormElement, fillOutInfo, configuration) => {
     showFieldError(
       modalFormElement,
       fillOutInfo,
-      fillOutInfo.validationMessage
+      fillOutInfo.validationMessage,
+      configuration
     );
   } else {
     hideFieldError(modalFormElement, fillOutInfo, configuration);
